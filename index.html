@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kaju Rental Broker provides rent collection, property care, rehabilitation, student storage and tenant placement in Biharwe, Mbarara.">
+  <meta name="theme-color" content="#075b3b">
+  <title>Kaju Rental Broker | Rent. Manage. Store. Prosper.</title>
+  <style>
+    :root{--green:#075b3b;--deep:#043d2a;--lime:#b9ed24;--pale:#f2f9ed;--ink:#17251e;--muted:#607168;--white:#fff;--line:#dce9df}
+    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;font-family:Inter,Arial,sans-serif;color:var(--ink);line-height:1.6;background:#fff}
+    a{color:inherit;text-decoration:none} .container{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:20;background:#ffffffed;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:76px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:900;color:var(--green);font-size:1.3rem;letter-spacing:-.5px}
+    .brand small{display:block;font-size:.68rem;letter-spacing:1.5px;color:var(--muted);font-weight:700;text-transform:uppercase;margin-top:-4px}
+    .mark{width:43px;height:43px;background:var(--green);border-radius:13px;display:grid;place-items:center;color:var(--lime);font-size:1.5rem;font-weight:900;clip-path:polygon(50% 0,100% 38%,100% 100%,0 100%,0 38%)}
+    nav{display:flex;align-items:center;gap:25px;font-size:.93rem;font-weight:700;color:#34483d}
+    nav a:hover{color:var(--green)} .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:999px;background:var(--lime);color:var(--deep);font-weight:900;border:0;cursor:pointer;transition:.2s}
+    .btn:hover{transform:translateY(-2px);filter:brightness(.97)} .btn.dark{background:var(--green);color:white}
+    .menu{display:none;background:none;border:0;font-size:1.6rem;color:var(--green)}
+    .hero{background:linear-gradient(115deg,#043d2a 0%,#075b3b 58%,#0d744b 100%);color:white;overflow:hidden;position:relative}
+    .hero:after{content:"";position:absolute;width:480px;height:480px;border:1px solid #ffffff25;border-radius:50%;right:-120px;top:-160px;box-shadow:0 0 0 45px #ffffff09,0 0 0 95px #ffffff08}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:45px;align-items:center;padding:88px 0 92px;position:relative;z-index:1}
+    .eyebrow{display:inline-block;color:var(--lime);font-weight:900;letter-spacing:2px;text-transform:uppercase;font-size:.75rem;margin-bottom:15px}
+    h1{font-size:clamp(2.6rem,5.5vw,4.6rem);line-height:1.04;letter-spacing:-2.5px;margin:0 0 22px}
+    h1 span{color:var(--lime)} .hero p{font-size:1.1rem;color:#e0eee6;max-width:570px;margin-bottom:28px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}.btn.outline{background:transparent;border:1px solid #ffffff80;color:white}
+    .hero-card{background:#ffffff12;border:1px solid #ffffff35;border-radius:28px;padding:30px;backdrop-filter:blur(8px);box-shadow:0 25px 60px #001e1433}
+    .house-art{height:210px;display:grid;place-items:center;font-size:8rem;color:var(--lime);text-shadow:0 10px 30px #001e1466}
+    .hero-card h3{margin:0 0 8px;font-size:1.35rem}.hero-card p{font-size:.95rem;margin:0;color:#d9ebe1}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
+    .stat{background:#ffffff12;border-radius:14px;padding:13px}.stat strong{display:block;color:var(--lime);font-size:1.2rem}.stat span{font-size:.75rem;color:#e0eee6}
+    section{padding:78px 0}.section-head{text-align:center;max-width:700px;margin:0 auto 38px}.section-head .eyebrow{color:var(--green);margin:0 0 8px}
+    h2{font-size:clamp(2rem,4vw,3rem);line-height:1.1;letter-spacing:-1px;margin:0 0 13px;color:var(--deep)}
+    .section-head p{color:var(--muted);margin:0}
+    .services{background:var(--pale)} .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .service{background:white;border:1px solid var(--line);border-radius:20px;padding:25px;box-shadow:0 8px 24px #143e2510;transition:.2s}
+    .service:hover{transform:translateY(-5px);box-shadow:0 16px 35px #143e2518}
+    .icon{width:48px;height:48px;border-radius:15px;background:#e9f8d4;color:var(--green);display:grid;place-items:center;font-size:1.45rem;margin-bottom:17px}
+    .service h3{margin:0 0 8px;color:var(--deep);font-size:1.12rem}.service p{margin:0;color:var(--muted);font-size:.94rem}
+    .tag{display:inline-block;margin-top:14px;font-size:.72rem;font-weight:900;color:var(--green);background:#eff8e8;border-radius:99px;padding:5px 10px}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}
+    .about-panel{background:var(--green);color:white;border-radius:25px;padding:34px;position:relative;overflow:hidden}
+    .about-panel:after{content:"K";position:absolute;font-size:17rem;font-weight:900;color:#ffffff0c;right:0;bottom:-120px}
+    .about-panel h3{font-size:1.7rem;margin:0 0 12px}.about-panel p{color:#dfede5}
+    .ticks{list-style:none;padding:0;margin:20px 0 0}.ticks li{margin:10px 0}.ticks li:before{content:"✓";color:var(--lime);font-weight:900;margin-right:10px}
+    .values{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:22px}.value{padding:17px;background:var(--pale);border-radius:15px}.value strong{display:block;color:var(--green);font-size:1.1rem}.value span{font-size:.85rem;color:var(--muted)}
+    .process{background:#fbfdf9}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.step{padding:23px 18px;border:1px solid var(--line);border-radius:18px;background:white}.step b{display:grid;place-items:center;width:35px;height:35px;border-radius:50%;background:var(--lime);color:var(--deep);margin-bottom:14px}.step h3{font-size:1rem;margin:0 0 7px}.step p{font-size:.88rem;color:var(--muted);margin:0}
+    .cta{background:var(--deep);color:white;text-align:center;padding:65px 0}.cta h2{color:white}.cta p{color:#d4e6dc;max-width:650px;margin:0 auto 25px}
+    .contact-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:30px}.contact-info{background:var(--pale);border-radius:22px;padding:28px}.contact-info h3{margin-top:0;color:var(--deep)}.contact-item{margin:18px 0;color:var(--muted)}.contact-item strong{display:block;color:var(--green)}
+    form{border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 8px 24px #143e2510}
+    label{display:block;font-weight:800;font-size:.85rem;margin:12px 0 6px}input,select,textarea{width:100%;padding:13px 14px;border:1px solid #cbd9cf;border-radius:11px;font:inherit;background:white;color:var(--ink)}textarea{min-height:120px;resize:vertical}
+    footer{background:#032e20;color:#d5e7dc;padding:27px 0}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:.85rem}.foot strong{color:var(--lime)}
+    .notice{font-size:.78rem;color:var(--muted);margin-top:10px}
+    @media(max-width:800px){nav{display:none;position:absolute;top:76px;left:0;right:0;background:white;padding:20px 4%;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.menu{display:block}.nav.open nav{display:flex}.nav>.btn{display:none}.hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}.hero-grid{padding:65px 0}.hero-card{max-width:520px}.cards{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:520px){section{padding:58px 0}.cards,.steps{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr 1fr}.hero-card{padding:22px}.house-art{height:145px;font-size:6rem}.values{grid-template-columns:1fr 1fr}h1{letter-spacing:-1.5px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="container nav" id="nav">
+    <a class="brand" href="#home"><span class="mark">⌂</span><span>KAJU<small>RENTAL BROKER</small></span></a>
+    <nav aria-label="Main navigation">
+      <a href="#home">Home</a><a href="#services">Our Services</a><a href="#about">About Kaju</a><a href="#process">How It Works</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="btn" href="#contact">Get in touch</a>
+    <button class="menu" aria-label="Open navigation" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">Your trusted rental partner · Biharwe, Mbarara</span>
+        <h1>Rent smart.<br><span>Live better.</span></h1>
+        <p>We help landlords protect and manage their properties, tenants find suitable homes, and students store their household items safely during holidays.</p>
+        <div class="hero-actions"><a class="btn" href="#contact">Request a service</a><a class="btn outline" href="#services">Explore our services</a></div>
+      </div>
+      <div class="hero-card">
+        <div class="house-art">⌂</div>
+        <h3>Rent · Manage · Store · Prosper</h3>
+        <p>Practical, affordable property solutions built around trust, care and convenience.</p>
+        <div class="stats"><div class="stat"><strong>Reliable</strong><span>Property care</span></div><div class="stat"><strong>Affordable</strong><span>Student storage</span></div><div class="stat"><strong>Convenient</strong><span>Rental support</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head"><span class="eyebrow">What we do</span><h2>Services designed around your property needs</h2><p>From rent collection to student storage, Kaju brings several useful rental services together under one trusted company.</p></div>
+      <div class="cards">
+        <article class="service"><div class="icon">💰</div><h3>Rent Collection</h3><p>We collect rent on behalf of landlords, issue payment records and provide clear reporting in line with the agreed management terms.</p><span class="tag">For landlords</span></article>
+        <article class="service"><div class="icon">🛠️</div><h3>Property Rehabilitation</h3><p>We coordinate repairs and improvements to worn-out properties based on a written scope, approved budget and agreement with the owner.</p><span class="tag">For property owners</span></article>
+        <article class="service"><div class="icon">🔧</div><h3>Property Maintenance</h3><p>We coordinate routine maintenance, electricity and water bill follow-up, litter collection and security arrangements as agreed.</p><span class="tag">Property care</span></article>
+        <article class="service"><div class="icon">📦</div><h3>Student Holiday Storage</h3><p>Affordable, organised storage for beds, mattresses, suitcases and other household items while students are away during holidays.</p><span class="tag">For students</span></article>
+        <article class="service"><div class="icon">🤝</div><h3>Tenant Placement</h3><p>We help landlords advertise vacant units, arrange viewings and connect with prospective tenants. Tenant screening can be arranged with consent.</p><span class="tag">Low-capital service</span></article>
+        <article class="service"><div class="icon">🧹</div><h3>Move-in & Move-out Cleaning</h3><p>We organise affordable cleaning before a tenant moves in or after a tenant moves out, helping properties stay presentable.</p><span class="tag">Low-capital service</span></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container about-grid">
+      <div>
+        <span class="eyebrow">About the company</span><h2>We take care of the details that make rentals work.</h2>
+        <p style="color:var(--muted)">Kaju Rental Broker is a property support and rental services company based in Biharwe, Mbarara. We connect landlords, tenants and students with dependable services that make property ownership and renting easier.</p>
+        <div class="values"><div class="value"><strong>Our Vision</strong><span>To become a leading and trusted rental management and property support company in Uganda.</span></div><div class="value"><strong>Our Motto</strong><span>“Rent Smart, Live Better.”</span></div><div class="value"><strong>Our Mission</strong><span>To deliver reliable, affordable and transparent rental solutions.</span></div><div class="value"><strong>Our Values</strong><span>Trust, accountability, care, affordability and professionalism.</span></div></div>
+      </div>
+      <div class="about-panel"><h3>Your property deserves dependable care.</h3><p>We aim to give landlords peace of mind and tenants a smoother renting experience through clear communication and agreed service standards.</p><ul class="ticks"><li>Written service agreements</li><li>Transparent records and reporting</li><li>Approved repair budgets</li><li>Convenient support for students</li><li>Respectful communication with clients</li></ul></div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-head"><span class="eyebrow">Simple and transparent</span><h2>How working with Kaju works</h2><p>We agree on the service, responsibilities and costs before work begins.</p></div>
+      <div class="steps">
+        <div class="step"><b>01</b><h3>Contact us</h3><p>Tell us whether you are a landlord, tenant or student and what support you need.</p></div>
+        <div class="step"><b>02</b><h3>Discuss the details</h3><p>We assess the property or storage needs and explain the service options and fees.</p></div>
+        <div class="step"><b>03</b><h3>Agree in writing</h3><p>We confirm responsibilities, costs, timelines and conditions in a written agreement.</p></div>
+        <div class="step"><b>04</b><h3>Receive the service</h3><p>We deliver the agreed service and keep communication and records clear.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container"><span class="eyebrow">Landlords · Tenants · Students</span><h2>Let Kaju make renting easier.</h2><p>Need help managing a rental property, finding a tenant, arranging cleaning or storing your belongings during the holidays? Talk to our team.</p><a class="btn" href="#contact">Talk to Kaju today</a></div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-head"><span class="eyebrow">Get in touch</span><h2>How can we help you?</h2><p>Send an enquiry and tell us what service you are interested in.</p></div>
+      <div class="contact-grid">
+        <div class="contact-info"><h3>Kaju Rental Broker</h3><p style="color:var(--muted)">Your trusted partner in rental solutions.</p>
+          <div class="contact-item"><strong>Location</strong>Biharwe – Mbarara, Uganda</div>
+          <div class="contact-item"><strong>Services</strong>Property management · Tenant placement · Student storage · Cleaning</div>
+          <div class="contact-item"><strong>Phone / WhatsApp</strong><span>[Add your business phone number]</span></div>
+          <div class="contact-item"><strong>Email</strong><span>[Add your business email]</span></div>
+          <p class="notice">Replace the phone number and email placeholders with your official business contacts before publishing.</p>
+        </div>
+        <form id="enquiry">
+          <label for="name">Your name</label><input id="name" name="name" required placeholder="Enter your name">
+          <label for="role">I am a...</label><select id="role" name="role"><option>Landlord / Property owner</option><option>Tenant looking for a rental</option><option>Student needing holiday storage</option><option>Other</option></select>
+          <label for="service">Service needed</label><select id="service" name="service"><option>Rent collection / property management</option><option>Property rehabilitation</option><option>Property maintenance</option><option>Student holiday storage</option><option>Tenant placement</option><option>Move-in / move-out cleaning</option><option>Other enquiry</option></select>
+          <label for="message">Your message</label><textarea id="message" name="message" required placeholder="Briefly describe what you need..."></textarea>
+          <button class="btn dark" type="submit" style="width:100%;margin-top:16px">Prepare enquiry</button>
+          <p class="notice" id="form-note">This form prepares an enquiry message. Add your WhatsApp number in the website code to enable direct sending.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="container foot"><div><strong>KAJU RENTAL BROKER</strong><br>Rent · Manage · Store · Prosper</div><div>Biharwe – Mbarara, Uganda</div><div>© <span id="year"></span> Kaju Rental Broker. All rights reserved.</div></div></footer>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+  document.getElementById('enquiry').addEventListener('submit', function(e){
+    e.preventDefault();
+    const data = new FormData(this);
+    const message = `Hello Kaju Rental Broker,%0AName: ${encodeURIComponent(data.get('name'))}%0AI am: ${encodeURIComponent(data.get('role'))}%0AService: ${encodeURIComponent(data.get('service'))}%0AMessage: ${encodeURIComponent(data.get('message'))}`;
+    // Replace 256700000000 with your WhatsApp number, including country code and without + or spaces.
+    const whatsappNumber = '256700000000';
+    if(whatsappNumber === '256700000000'){
+      document.getElementById('form-note').textContent = 'Your enquiry is ready. To activate sending, replace the sample WhatsApp number (256700000000) in the website code with your business number.';
+      alert('Please add your official WhatsApp number to the website code to send enquiries.');
+    } else {
+      window.open(`https://wa.me/${whatsappNumber}?text=${message}`, '_blank');
+    }
+  });
+</script>
+</body>
+</html>
