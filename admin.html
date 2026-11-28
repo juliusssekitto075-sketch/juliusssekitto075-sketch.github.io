@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex,nofollow"><title>Kaju Admin</title>
+<style>
+:root{--bg:#f7fbf6;--card:#fff;--ink:#16251d;--muted:#5f7167;--line:#dce9df;--green:#075b3b;color-scheme:light dark}
+@media(prefers-color-scheme:dark){:root{--bg:#0d1912;--card:#14241b;--ink:#e6f0ea;--muted:#9fb3a8;--line:#25392e;--green:#7fd9a6}}
+body{margin:0;font-family:system-ui,sans-serif;background:var(--bg);color:var(--ink);padding:20px;max-width:900px;margin:auto}
+h1{color:var(--green)}input{width:100%;box-sizing:border-box;padding:13px;margin:6px 0;border:1px solid var(--line);border-radius:11px;font:inherit;background:var(--card);color:var(--ink)}
+button{border:0;border-radius:99px;padding:12px 18px;font:inherit;font-weight:800;background:#075b3b;color:#fff}button.r{background:#b3261e}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;margin:14px 0;overflow:hidden}.card .b{padding:14px}.card img{width:100%;max-height:220px;object-fit:cover;display:block}
+#msg{font-weight:700;color:var(--green)}
+</style></head><body>
+<h1>Kaju Admin</h1>
+<div id="login"><input id="em" type="email" placeholder="Admin email"><input id="pw" type="password" placeholder="Password"><button id="go">Log in</button></div>
+<div id="msg"></div>
+<div id="app" hidden><h2>Pending properties</h2><div id="pend"></div><h2>Published properties</h2><div id="pub"></div></div>
+<script>
+const SB='https://puptjofmyaembpbwxqhh.supabase.co',KEY='sb_publishable_RqpgsurL58dyckPtSR0oiw_VhJaw66N';let TOK=null;
+const H=()=>({apikey:KEY,Authorization:'Bearer '+TOK});
+const $=i=>document.getElementById(i);
+const esc=x=>String(x||'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function card(l,pending){const p=(l.photos||[])[0];return `<div class="card">${p?`<img src="${esc(p.m)}" alt="">`:''}<div class="b"><b>${esc(l.title)}</b><br>${esc(l.area)} · UGX ${esc(l.rent)}<br><small>${esc(l.landlord)} · ${esc(l.phone)}</small><p>${esc(l.details)}</p>${pending?`<button data-a="${l.id}">Approve</button> <button class="r" data-d="${l.id}">Reject</button>`:`<button class="r" data-d="${l.id}">Unpublish and delete</button>`}</div></div>`}
+async function load(){for(const [st,el,pd] of [['pending','pend',1],['approved','pub',0]]){const r=await fetch(`${SB}/rest/v1/listings?status=eq.${st}&order=created_at.desc`,{headers:H()});const d=await r.json();$(el).innerHTML=Array.isArray(d)&&d.length?d.map(l=>card(l,pd)).join(''):'<p>None.</p>';}}
+$('go').onclick=async()=>{$('msg').textContent='Logging in…';try{const r=await fetch(SB+'/auth/v1/token?grant_type=password',{method:'POST',headers:{apikey:KEY,'Content-Type':'application/json'},body:JSON.stringify({email:$('em').value.trim(),password:$('pw').value})});const d=await r.json();if(!d.access_token){$('msg').textContent='Login failed: '+(d.error_description||d.msg||r.status);return;}TOK=d.access_token;$('login').hidden=true;$('msg').textContent='';$('app').hidden=false;load();}catch(e){$('msg').textContent='Network error.';}};
+document.addEventListener('click',async e=>{const a=e.target.dataset.a,d=e.target.dataset.d;if(!a&&!d)return;const u=`${SB}/rest/v1/listings?id=eq.${a||d}`;
+const r=await fetch(u,a?{method:'PATCH',headers:{...H(),'Content-Type':'application/json'},body:JSON.stringify({status:'approved'})}:{method:'DELETE',headers:H()});
+$('msg').textContent=r.ok?'Done.':'Failed: '+r.status;load();});
+</script></body></html>
